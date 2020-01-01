@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html class="has-navbar-fixed-top">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			网易云音乐解析
+		</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bulma/0.7.1/css/bulma.min.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css">
+		<script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js">
+		</script>
+	</head>
+	<body>
+		<nav id="navbar" class="navbar is-fixed-top navbar is-dark" style="
+		transform: translateY(0px);
+		">
+			<div id="specialShadow" class="bd-special-shadow" style="opacity: 1; transform: scaleY(1);">
+			</div>
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item is-size-5" href="/">
+						<b>
+							fukoy
+						</b>
+					</a>
+					<div id="navMenuDocumentation" class="navbar-menu">
+						<div class="navbar-start">
+							<a class="navbar-item " href="../dplayer/">
+								<span class="fa fa-video-camera">
+								</span>
+								&thinsp;dplayer
+							</a>
+							<a class="navbar-item " href="../aplayer/">
+								<span class="fa fa-volume-up">
+								</span>
+								&thinsp;aplayer
+							</a>
+							<a class="navbar-item " href="../music/">
+								<span class="fa fa-music">
+								</span>
+								&thinsp;网易云音乐解析
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="section">
+			<div class="container">
+				<div class="columns is-centered">
+					<div class="column is-9">
+						<div class="field">
+							<label class="label is-size-4">
+								网易云音乐解析播放：
+							</label>
+							<div class="field has-addons">
+								<div class="control is-expanded">
+									<input id="url" class="input" value="https://music.163.com/#/song?id=3729049"
+									placeholder="原网址">
+								</div>
+								<div class="control">
+									<button type="submit" class="button is-primary fa fa-play" onClick="Geturl();">
+										&thinsp;播放
+									</button>
+								</div>
+							</div>
+							<div id="player">
+							</div>
+							<p class="help is-size-6">
+								id后面不要带别的文字
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js">
+		</script>
+		<script>
+			var ap = new APlayer({
+				container: document.getElementById('player'),
+				audio: [{}]
+			});
+		</script>
+		<script>
+			function Geturl() {
+				var txt = document.getElementById("url").value;
+				var index = txt.lastIndexOf("\?id=");
+				id = txt.substring(index + 4, txt.length);
+				myjsonp("https://api.fukoy.com/netmusic?id=" + id + "&callback=jsonpCallback",
+				function(data) {
+					var ap = new APlayer({
+						container: document.getElementById('player'),
+						autoplay: true,
+						loop: 'none',
+						volume: 1,
+						audio: [{
+							name: eval(data).name,
+							artist: eval(data).artists,
+							url: eval(data).url,
+							cover: eval(data).pic,
+						}]
+					})
+				},
+				"jsonpCallback")
+			}
+			function myjsonp(URL, callback, callbackname) {
+				window[callbackname] = callback;
+				var oscript = document.createElement("script");
+				oscript.src = URL;
+				oscript.type = "text/javascript";
+				document.head.appendChild(oscript);
+				document.head.removeChild(oscript)
+			}
+		</script>
+	</body>
+
+</html>

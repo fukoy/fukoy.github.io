@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/dplayer/1.22.2/DPlayer.min.css">
+	<style type="text/css">body,html,.dplayer{padding:0;margin:0;width:100%;height:100%;background-color:#000}a{text-decoration:none}</style> 
+</head>
+<body>
+<div id="dplayer"></div>
+<script src="https://cdn.bootcss.com/dplayer/1.22.2/DPlayer.min.js"></script>
+<script>
+	var url = GetQueryString("url"); 
+    var dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+		autoplay:true,
+		loop:true,
+		hotkey:true,
+		preload:'auto',
+        video: {
+            url: url
+        }
+		    });
+	function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+          if (r != null)
+               return decodeURI(r[2]);
+             return null;
+          }
+</script>
+</body>
+</html>

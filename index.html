@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fukoy — About</title>
+    <meta name="viewport" content="width=640, initial-scale=0.5">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./main.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/balloon-css/0.5.0/balloon.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css">
+    <!--<link rel="stylesheet" href="dist/lib/font-awesome/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container shake">
+        <div class="head">
+            <div class="head-container">
+            </div>
+        </div>
+        <div class="body">
+            <p><a class="fa fa-tag"> 95后</a>&emsp;<a class="fa fa-tag"> 伪技术宅</a>&emsp;<a class="fa fa-tag"> fukoy</a>&emsp;<a class="fa fa-tag"> tool</a>&emsp;<a class="fa fa-tag"> 浮空翼</a></p>
+            <p>— 沫余琪禾，琪壬天秦 —</p>
+            <div>
+                <a data-balloon="博客" data-balloon-pos="up" target="_blank" href="https://www.fukoy.com/"><i class="fa fa-share-alt"></i></a>
+                <a data-balloon="工具" data-balloon-pos="up" target="_blank" href="https://tool.fukoy.com/"><i class="fa fa-archive"></i></a>
+                <a data-balloon="GitHub" data-balloon-pos="up" target="_blank" href="https://github.com/fukoy"><i class="fa fa-github"></i></a>
+                <a data-balloon="短网址" data-balloon-pos="up" target="_blank" href="https://suo.sk/"><i class="fa fa-link"></i></a>
+				<a data-balloon="图库" data-balloon-pos="up" target="_blank" href="http://img.fukoy.com/"><i class="fa fa-file-image-o"></i></a>
+                <a data-balloon="优惠券" data-balloon-pos="up" target="_blank" href="http://quan.fukoy.com/"><i class="fa fa-shopping-bag"></i></a>
+				<a data-balloon="2048" data-balloon-pos="up" target="_blank" href="http://2048.fukoy.com/"><i class="fa fa-gamepad"></i></a>
+				<a data-balloon="about" data-balloon-pos="up" target="_blank" href="#"><i class="fa fa-info"></i></a>
+            </div>
+        </div>
+    </div>
+	<div id="player"></div>
+	<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+<script>
+const ap = new APlayer({
+    container: document.getElementById('player'),
+    fixed: true,
+	autoplay: true,
+	volume: 0.5,
+	order: 'random',
+    audio: [
+		{
+        name: 'Sky High',
+        artist: 'Elektronomia',
+        url: 'https://music.163.com/song/media/outer/url?id=451126088.mp3',
+        cover: 'http://p1.music.126.net/xEKTc3PHF1BTZQ09R7At7w==/109951163313726059.jpg',
+		},
+		{
+        name: 'Battle City (Original Mix)',
+        artist: 'DJ Walkman',
+        url: 'https://music.163.com/song/media/outer/url?id=27241558.mp3',
+        cover: 'http://p1.music.126.net/ox_YxQjdtJelZAniy1IVTw==/2025300418400710.jpg',
+		},
+		{
+        name: 'Levels (Radio Edit)',
+        artist: 'Avicii',
+        url: 'https://music.163.com/song/media/outer/url?id=16345145.mp3',
+        cover: 'http://p1.music.126.net/70xhYJbIiCCHPA13VYe_0A==/680597697600642.jpg',
+		},
+		{
+        name: 'Xenogenesis (Original Mix)',
+        artist: 'TheFatRat',
+        url: 'https://music.163.com/song/media/outer/url?id=29771215.mp3',
+        cover: 'http://p1.music.126.net/_Jp78CRpFVA6gFUVdE6V9g==/3222668582493612.jpg',
+		},
+		{
+        name: 'Nevada',
+        artist: 'Vicetone',
+        url: 'https://music.163.com/song/media/outer/url?id=418602088.mp3',
+        cover: 'http://p1.music.126.net/8uFCXr2mUoXNAK1EJgVBhw==/18517974835045498.jpg',
+		}
+			]
+});
+</script>
+</body>
+</html>
